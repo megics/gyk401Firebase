@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/anasayfa"
+            android:icon="@drawable/home"
+            android:title="Ana Sayfa" />
+        <item
+            android:id="@+id/profil"
+            android:icon="@drawable/person"
+            android:title="Profilim" />
+        <item
+            android:id="@+id/cikisyap"
+            android:icon="@drawable/remove"
+            android:title="Çıkış Yap" />
+
+    </group>
+
+
+
+</menu>

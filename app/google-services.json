@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "35583367170",
+    "firebase_url": "https://denemeuygulama-31fdf.firebaseio.com",
+    "project_id": "denemeuygulama-31fdf",
+    "storage_bucket": "denemeuygulama-31fdf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:35583367170:android:c18a317fea1fd36d",
+        "android_client_info": {
+          "package_name": "com.example.gezginapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "35583367170-hn71vvjqvnf8c6u560is2vfi8hui87cd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gezginapp",
+            "certificate_hash": "f1b0c20f0a285d0087391e1b7c9a9da1278b4255"
+          }
+        },
+        {
+          "client_id": "35583367170-f0cm28k1vr35r6b6o8om0vgikiaio4pn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5iKbuKfIjc1zzkgx6NMFaH57V753GoNA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "35583367170-f0cm28k1vr35r6b6o8om0vgikiaio4pn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

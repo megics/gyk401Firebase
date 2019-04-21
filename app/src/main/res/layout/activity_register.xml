@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+
+    <EditText
+        android:id="@+id/emailreg"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="150dp"
+        android:background="@color/white"
+        android:hint="Email Adresiniz"
+        android:textColor="#000"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/parolareg"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        app:layout_constraintTop_toBottomOf="@id/emailreg"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="14dp"
+        android:background="@color/white"
+        android:hint="Parolanız"
+        android:textColor="#000"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/parolaonay"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        app:layout_constraintTop_toBottomOf="@id/parolareg"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="14dp"
+        android:background="@color/white"
+        android:hint="Parola Onay"
+        android:textColor="#000"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/kayitolreg"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintTop_toBottomOf="@id/parolaonay"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="14dp"
+        android:background="@color/colorPrimary"
+        android:text="Kayıt Ol"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        />
+
+</android.support.constraint.ConstraintLayout>
