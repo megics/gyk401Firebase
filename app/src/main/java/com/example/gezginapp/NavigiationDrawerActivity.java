@@ -26,6 +26,7 @@ public class NavigiationDrawerActivity extends AppCompatActivity
     HomeFragment hf;
     ProfilFragment pf;
     FirebaseAuth firebaseAuth;
+    NotlarimFragment nf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,15 +34,6 @@ public class NavigiationDrawerActivity extends AppCompatActivity
         setContentView(R.layout.activity_navigiation_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -55,7 +47,22 @@ public class NavigiationDrawerActivity extends AppCompatActivity
         mainFrame = findViewById(R.id.mainframe);
         hf = new HomeFragment();
         pf = new ProfilFragment();
-        setFragment(hf);
+        nf = new NotlarimFragment();
+
+        try{
+            Bundle extras =getIntent().getExtras();
+            String info = (String) extras.get("Intent Bilgisi");
+            if(info.equals("notekle"))
+            {
+                setFragment(nf);
+            }
+        }
+        catch (Exception e)
+        {
+            setFragment(hf);
+        }
+
+
     }
 
     @Override
@@ -113,8 +120,10 @@ public class NavigiationDrawerActivity extends AppCompatActivity
             firebaseAuth.signOut();
             Intent i = new Intent(NavigiationDrawerActivity.this,MainActivity.class);
             startActivity(i);
-
-
+        }
+        else if(id==R.id.notlarim)
+        {
+            setFragment(nf);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
