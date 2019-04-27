@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
                                     {
                                         Toast.makeText(getApplicationContext(),"Giriş Yapıldı",Toast.LENGTH_LONG)
                                                 .show();
+                                        Intent i = new Intent(MainActivity.this,NavigiationDrawerActivity.class);
+                                        startActivity(i);
                                     }
                                     else
                                     {

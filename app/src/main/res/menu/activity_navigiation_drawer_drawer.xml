@@ -12,6 +12,8 @@
             android:id="@+id/profil"
             android:icon="@drawable/person"
             android:title="Profilim" />
+
+
         <item
             android:id="@+id/cikisyap"
             android:icon="@drawable/remove"
