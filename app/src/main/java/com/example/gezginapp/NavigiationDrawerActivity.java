@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -56,9 +57,15 @@ public class NavigiationDrawerActivity extends AppCompatActivity
             {
                 setFragment(nf);
             }
+            if (info.equals("fotoekle"))
+            {
+
+                setFragment(pf);
+            }
         }
-        catch (Exception e)
+        catch (NullPointerException e)
         {
+
             setFragment(hf);
         }
 

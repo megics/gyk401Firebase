@@ -5,11 +5,22 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
+
+import java.util.EventListener;
 
 
 /**
@@ -30,6 +41,9 @@ public class ProfilFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     ImageButton imgBtn;
+    FirebaseStorage firebaseStorage;
+    ImageView pp;
+    ImageButton fekle;
 
     private OnFragmentInteractionListener mListener;
 
@@ -68,9 +82,18 @@ public class ProfilFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View holder = inflater.inflate(R.layout.fragment_profil, container, false);
-
+        pp = holder.findViewById(R.id.imageView2);
+        firebaseStorage = FirebaseStorage.getInstance();
+        showPhoto();
         imgBtn = holder.findViewById(R.id.instaicon);
-
+        fekle = holder.findViewById(R.id.fotoeklemeyegit);
+        fekle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),FotoEkleActivity.class);
+                startActivity(intent);
+            }
+        });
         imgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,6 +103,27 @@ public class ProfilFragment extends Fragment {
         });
 
         return holder;
+    }
+
+    public void showPhoto(){
+
+        StorageReference ref = firebaseStorage.getReference().child("userprofilephoto");
+        ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.with(getContext()).load(uri).fit().centerCrop().into(pp);
+                Toast.makeText(getContext(),"Yükleme işi başarılı",Toast.LENGTH_SHORT)
+                        .show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getContext(),"Yükleme işi başarısız",Toast.LENGTH_SHORT)
+                        .show();
+            }
+        });
+
+
     }
 
     public void openInstagram()
